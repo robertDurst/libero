@@ -5,5 +5,6 @@ module Libero
       .get("/status") { |request, response| Status.call(request, response) }
       .get("/health") { |request, response| Health.call(request, response) }
       .get("/version") { |request, response| Version.call(request, response) }
+      .get("/events") { |request, response| Events.call(request, response) }
   end
 end

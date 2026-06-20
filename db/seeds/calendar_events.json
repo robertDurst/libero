@@ -1,0 +1,21 @@
+[
+  { "date": "2026-06-11", "time": "21:00", "title": "México vs Sudáfrica", "location": "Ciudad de México (MX)", "type": "Mundial" },
+  { "date": "2026-06-15", "time": "18:00", "title": "España vs Cabo Verde", "location": "Atlanta (EU)", "type": "Mundial" },
+  { "date": "2026-06-16", "time": "00:00", "title": "Uruguay vs Arabia Saudí", "location": "Miami (EU)", "type": "Mundial" },
+  { "date": "2026-06-17", "time": "00:00", "title": "Irak vs Noruega", "location": "Foxborough (EU)", "type": "Mundial" },
+  { "date": "2026-06-17", "time": "03:00", "title": "Argentina vs Argelia", "location": "Kansas City (EU)", "type": "Mundial" },
+  { "date": "2026-06-19", "time": "03:00", "title": "México vs Corea del Sur", "location": "Guadalajara (MX)", "type": "Mundial" },
+  { "date": "2026-06-21", "time": "18:00", "title": "España vs Arabia Saudí", "location": "Atlanta (EU)", "type": "Mundial" },
+  { "date": "2026-06-21", "time": "23:00", "title": "Uruguay vs Cabo Verde", "location": "Miami (EU)", "type": "Mundial" },
+  { "date": "2026-06-22", "time": "19:00", "title": "Argentina vs Austria", "location": "Arlington (EU)", "type": "Mundial" },
+  { "date": "2026-06-23", "time": "02:00", "title": "Noruega vs Senegal", "location": "East Rutherford (EU)", "type": "Mundial" },
+  { "date": "2026-06-25", "time": "03:00", "title": "Chequia vs México", "location": "Ciudad de México (MX)", "type": "Mundial" },
+  { "date": "2026-06-26", "time": "21:00", "title": "Noruega vs Francia", "location": "Foxborough (EU)", "type": "Mundial" },
+  { "date": "2026-06-27", "time": "02:00", "title": "España vs Uruguay", "location": "Guadalajara (MX)", "type": "Mundial" },
+  { "date": "2026-06-28", "time": "04:00", "title": "Argentina vs Jordania", "location": "Arlington (EU)", "type": "Mundial" },
+  { "date": "2026-06-30", "time": "19:00", "title": "Sorteo del calendario de LaLiga 26-27", "location": "Madrid", "type": "Liga" },
+  { "date": "2026-08-01", "time": "15:00", "title": "Atlético vs Manchester United", "location": "Estocolmo (SE)", "type": "Amistoso" },
+  { "date": "2026-08-15", "time": "", "title": "LaLiga · Jornada 1 (inicio de temporada)", "location": "Por confirmar", "type": "Liga" },
+  { "date": "2026-08-27", "time": "", "title": "Sorteo de la fase liga de la Champions", "location": "Mónaco", "type": "Champions" },
+  { "date": "2027-06-05", "time": "", "title": "Final de la Champions League (Metropolitano)", "location": "Madrid", "type": "Champions" }
+]

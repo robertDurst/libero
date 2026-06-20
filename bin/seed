@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+# Convenience wrapper around db/seed.rb.
+#   DATABASE_URL=postgres://... bin/seed
+require_relative "../db/seed"

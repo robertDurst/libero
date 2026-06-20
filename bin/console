@@ -2,11 +2,14 @@
 # An IRB session with the library booted — our stand-in for `rails console`.
 #   DATABASE_URL=postgres://... bin/console
 #
-# `db` hands you a live connection, e.g. db.exec("SELECT now()").values
+# Models are live, e.g. Libero::CalendarEvent.ordered.count. `db` hands you the
+# raw connection for ad-hoc SQL, e.g. db.execute("SELECT now()").values
 require_relative "../lib/libero"
 require "irb"
 
-def db = Libero::DB.connection
+Libero::DB.connect!
 
-puts "Libero #{Libero::VERSION} — `db` is a Postgres connection, `Libero` is loaded."
+def db = ActiveRecord::Base.connection
+
+puts "Libero #{Libero::VERSION} — ActiveRecord is connected; `db` is the raw connection."
 IRB.start

@@ -6,6 +6,8 @@ require_relative "libero/responses"
 require_relative "libero/db"
 require_relative "libero/status"
 require_relative "libero/health"
+require_relative "libero/calendar_event"
+require_relative "libero/events"
 require_relative "libero/router"
 require_relative "libero/routes"
 

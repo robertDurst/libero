@@ -17,6 +17,17 @@ RSpec.describe Libero::Responses do
     end
   end
 
+  describe ".json" do
+    it "serialises data with a JSON content type and CORS headers" do
+      described_class.json(response, 200, [{ "a" => 1 }])
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('[{"a":1}]')
+      expect(response["Content-Type"]).to eq("application/json")
+      expect(response["Access-Control-Allow-Origin"]).to eq("*")
+    end
+  end
+
   describe ".no_content" do
     it "produces an empty 204 with CORS headers" do
       described_class.no_content(response)

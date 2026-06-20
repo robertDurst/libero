@@ -1,47 +1,51 @@
+require "active_record"
+
 module Libero
-  # Thin wrapper around the Postgres connection.
+  # ActiveRecord connection bootstrap.
   #
   # Vercel reuses a warm serverless instance across many invocations, so we
-  # memoize one connection per instance and reconnect only when the socket
-  # has died (an idle pooler will eventually drop us). Point DATABASE_URL at
-  # Neon's pooled (-pooler) connection string so PgBouncer fans these out.
+  # establish the connection pool once per instance and reuse it. Point
+  # DATABASE_URL at Neon's pooled (-pooler) connection string so PgBouncer
+  # fans the (small) pool out across functions.
   module DB
     # Raised when DATABASE_URL is missing — surfaced rather than swallowed so
     # a misconfigured deploy fails loudly instead of looking merely unhealthy.
     class NotConfigured < StandardError; end
 
-    # The memoized connection for this instance, reconnecting if it has gone
-    # away. `pg` is required lazily so the rest of the library loads (and the
-    # suite runs) even where the native gem isn't built.
-    def self.connection
+    # Establish the AR connection pool, once per warm instance. Idempotent:
+    # later calls are a cheap no-op. A serverless function handles one request
+    # at a time, so a tiny pool is plenty.
+    def self.connect!
+      return if @connected
+
       url = ENV["DATABASE_URL"]
       raise NotConfigured, "DATABASE_URL is not set" if url.nil? || url.empty?
 
-      require "pg"
-      return @connection if @connection && !@connection.finished?
-
-      @connection = PG.connect(url)
+      ActiveRecord::Base.establish_connection(url)
+      @connected = true
     end
 
     # A trivial round-trip to Postgres. Returns a boolean (never raises) so
-    # the /health endpoint can branch on it; a failure drops the connection
-    # so the next call reconnects from scratch.
+    # the /health endpoint can branch on it; a failure tears the pool down so
+    # the next call reconnects from scratch (an idle pooler eventually drops
+    # us).
     def self.healthy?
-      connection.exec("SELECT 1")
+      connect!
+      ActiveRecord::Base.connection.execute("SELECT 1")
       true
     rescue StandardError
       reset!
       false
     end
 
-    # Discard the memoized connection. Closing can itself fail on an already
+    # Discard the connection pool. Disconnecting can itself fail on an already
     # broken socket, which is fine — we're throwing it away regardless.
     def self.reset!
-      @connection&.close
+      ActiveRecord::Base.connection_handler.clear_all_connections!
     rescue StandardError
       nil
     ensure
-      @connection = nil
+      @connected = false
     end
   end
 end

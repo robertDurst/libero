@@ -1,3 +1,5 @@
+require "json"
+
 module Libero
   # Builders for the small set of responses our endpoints return.
   # Each one stamps CORS headers and returns the response for convenience.
@@ -9,6 +11,13 @@ module Libero
       headers.each { |key, value| response[key] = value }
       response.body = body
       response
+    end
+
+    # Serialises `data` (an already-built Ruby Array/Hash/...) to a JSON body,
+    # keeping endpoints ignorant of the wire format.
+    def self.json(response, status, data, headers: {})
+      text(response, status, JSON.generate(data),
+           content_type: "application/json", headers: headers)
     end
 
     def self.no_content(response)
