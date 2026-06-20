@@ -1,0 +1,66 @@
+spec/libero/events_spec.rb
+  s_b6ce5285ea7d33::t_7d30e08d6bbea4 1,5-7,11-17,19-21
+  s_b6ce5285ea7d33::t_ed214e62d3f85c 2-4,8-10,18
+lib/libero/responses.rb
+  s_b6ce5285ea7d33::t_a81b006443967e 1-2
+  s_b6ce5285ea7d33::t_c1fc518d8a03b0 16-22
+lib/libero.rb
+  s_b6ce5285ea7d33::t_f2f8979d5ee25c 9
+  s_b6ce5285ea7d33::t_0a3080d79c4cb2 10
+bin/console
+  s_b6ce5285ea7d33::t_38936647df4501 5-6,10,12-14
+lib/libero/db.rb
+  s_b6ce5285ea7d33::t_da406a1af80fdc 1-2,4,7-9,15-20,24-25,29-31,33-34,41,44,48
+db/migrate/001_create_calendar_events.rb
+  h_55b93de7ce5e50 1-25
+DEVELOPMENT.md
+  s_b6ce5285ea7d33::t_1c90c825d27eda 19-23
+  s_b6ce5285ea7d33::t_18fa2a7ddfa530 12-17
+spec/libero/db_spec.rb
+  s_b6ce5285ea7d33::t_5d8b3e9d07d985 2,4,8,14-22,27-28,31-32,37-38
+lib/libero/routes.rb
+  s_b6ce5285ea7d33::t_df678b687896d5 8
+lib/libero/events.rb
+  s_b6ce5285ea7d33::t_ea1c11388be54c 4,6-7,9-10
+  s_b6ce5285ea7d33::t_ce030a3aff6a97 1-3,5,8,11-17
+db/migrate.rb
+  s_b6ce5285ea7d33::t_a40444db0987ce 17-18,20
+  s_b6ce5285ea7d33::t_4d68f5e130347d 21-25
+  s_b6ce5285ea7d33::t_d1e868cda6a8d1 1-3,5-14,19,26-27,29-51,54
+Gemfile
+  s_b6ce5285ea7d33::t_834b87b6319498 7-10
+db/seeds/calendar_events.json
+  s_b6ce5285ea7d33::t_3f68812c996ade 1-21
+README.md
+  h_55b93de7ce5e50 7-9
+bin/seed
+  s_b6ce5285ea7d33::t_210728999cab92 1-4
+spec/libero/responses_spec.rb
+  s_b6ce5285ea7d33::t_ef21391ad36b11 20-30
+lib/libero/calendar_event.rb
+  s_b6ce5285ea7d33::t_ae0d7e46c2b6ae 1-27
+db/seed.rb
+  s_b6ce5285ea7d33::t_1e59858a73e10a 1-2,4-8,11-12,16,19,26-29
+  s_b6ce5285ea7d33::t_f9080f0722bd6c 3,9-10,13-15,17-18,20-25,30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "f775b8126c1a024eac45d69054b09aab2d138f63",
+  "prompts": {},
+  "humans": {
+    "h_55b93de7ce5e50": {
+      "author": "robertDurst <me@robdurst.com>"
+    }
+  },
+  "sessions": {
+    "s_b6ce5285ea7d33": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "804e4a33-89ed-45a8-b23a-bc0b660e906d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "robertDurst <me@robdurst.com>"
+    }
+  }
+}
