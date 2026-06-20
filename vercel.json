@@ -1,4 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/status.rb": {
+      "includeFiles": "lib/**"
+    }
+  },
   "rewrites": [{ "source": "/status", "destination": "/api/status" }]
 }
