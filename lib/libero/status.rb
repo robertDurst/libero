@@ -1,24 +1,11 @@
 module Libero
-  # The /status health-check endpoint.
+  # The /status health-check endpoint. The router handles preflight and
+  # method/path checks, so this only renders the happy-path body.
   module Status
     BODY = "ok".freeze
 
-    # Drive a WEBrick-style request/response pair, the way Vercel's Ruby
-    # runtime invokes the handler. Returns the response for convenience.
-    def self.call(request, response)
-      CORS.apply(response)
-
-      if CORS.preflight?(request)
-        # Preflight needs only the headers and an empty 204.
-        response.status = 204
-        response.body = ""
-      else
-        response.status = 200
-        response["Content-Type"] = "text/plain"
-        response.body = BODY
-      end
-
-      response
+    def self.call(_request, response)
+      Responses.text(response, 200, BODY)
     end
   end
 end
