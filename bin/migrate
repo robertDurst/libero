@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+# Convenience wrapper around db/migrate.rb.
+#   DATABASE_URL=postgres://... bin/migrate
+require_relative "../db/migrate"

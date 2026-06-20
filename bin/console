@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# An IRB session with the library booted — our stand-in for `rails console`.
+#   DATABASE_URL=postgres://... bin/console
+#
+# `db` hands you a live connection, e.g. db.exec("SELECT now()").values
+require_relative "../lib/libero"
+require "irb"
+
+def db = Libero::DB.connection
+
+puts "Libero #{Libero::VERSION} — `db` is a Postgres connection, `Libero` is loaded."
+IRB.start

@@ -14,7 +14,10 @@ Set it locally for the migration/console, and in Vercel under **Project → Sett
 
 ```sh
 # apply the schema (idempotent)
-DATABASE_URL=postgres://... ruby db/migrate.rb
+DATABASE_URL=postgres://... bin/migrate
+
+# open an IRB session with the library + a live DB connection (`db`) loaded
+DATABASE_URL=postgres://... bin/console
 ```
 
 `GET /health` is a readiness check: it returns `200 ok` only when a live
