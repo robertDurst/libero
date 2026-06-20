@@ -1,24 +1,26 @@
 # libero
 
-[![Package Version](https://img.shields.io/hexpm/v/libero)](https://hex.pm/packages/libero)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/libero/)
+A tiny Ruby status endpoint, deployed as a Vercel serverless function.
+
+| Method | Path      | Response   |
+| ------ | --------- | ---------- |
+| `GET`  | `/status` | `200` `ok` |
+
+## Files
+
+- `api/status.rb` — the Vercel function. Returns `200 ok`.
+- `vercel.json` — rewrites `/status` to the function.
+- `spec/status_spec.rb` — RSpec test for the handler.
+
+## Develop
 
 ```sh
-gleam add libero@1
-```
-```gleam
-import libero
-
-pub fn main() -> Nil {
-  // TODO: An example of the project in use
-}
+bundle install
+bundle exec rspec
 ```
 
-Further documentation can be found at <https://hexdocs.pm/libero>.
+## Deploy to Vercel
 
-## Development
-
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
+Push to GitHub and import the repo on [vercel.com](https://vercel.com) (Hobby plan
+is free, no card). Vercel detects the Ruby function in `api/` and serves it — no
+build step, no Dockerfile. `GET /status` returns `ok`.
